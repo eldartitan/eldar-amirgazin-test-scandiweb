@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# GraphQL Endpoint
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can find the endpoint [here](https://github.com/scandiweb/junior-react-endpoint).
 
 ## Available Scripts
 

@@ -1,0 +1,204 @@
+.flex {
+  display: flex;
+}
+.flexMt {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+/* index */
+
+.cart {
+  margin-bottom: 274px;
+  color: #1D1F22;
+}
+
+.cartText {
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem; 
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  font-weight: 700;
+}
+
+.text {
+  font-size: 1.5rem;
+  line-height: 2rem; 
+}
+
+.textMedium {
+  font-weight: 500;
+}
+
+.textBold {
+  font-weight: 700;
+}
+
+.lineDiv {
+  display: flex;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem; 
+}
+
+.line {
+  width: 100%; 
+  background: #E5E5E5;
+  height: 1px;
+}
+
+.orderButton {
+  margin-top: 1.25rem; 
+  color: #ffffff; 
+  font-size: 0.875rem;
+  line-height: 1.25rem; 
+  font-weight: 600; 
+  background: #5ECE7B;
+  width: 279px;
+  height: 43px;
+}
+
+/* list */
+
+.flexCol {
+  display: flex; 
+  flex-direction: column;
+}
+
+.list {
+  display: flex; 
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.infoBlock {
+  width: 100%; 
+}
+
+.brand {
+  padding-bottom: 1rem; 
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+}
+
+.name {
+  color: inherit;
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.price {
+  font-size: 1.5rem;
+  line-height: 2rem; 
+  font-weight: 700; 
+  padding-top: 10px;
+}
+
+.amountBlock {
+  display: flex; 
+  margin-right: 1.5rem; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 45px;
+}
+
+.buttonAmount {
+  font-size: 2.25rem;
+  line-height: 2.5rem; 
+  font-weight: 200;  
+  width: 45px;
+  height: 45px;
+  border: 1px solid #1D1F22;
+}
+.buttonAmount:hover {
+  color: #ffffff; 
+  background: #1D1F22;
+}
+
+.amount {
+  margin-top: 1rem;
+  margin-bottom: 1rem; 
+  font-size: 1.5rem;
+  line-height: 2rem; 
+  font-weight: 500;
+}
+
+.gallery {
+  display: flex; 
+  align-items: center;
+}
+
+.galleryImage {
+  background: center no-repeat;  
+  background-size: contain;
+  width: 200px;
+  height: 288px;
+  z-index: 10
+}
+
+.arrowBlock {
+  display: flex; 
+  align-items: flex-end; 
+  height: 100%;
+}
+
+.arrowCont {
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.buttonLeft {
+  padding: 0.5rem; 
+  background-color: #000000; 
+  opacity: 0.7; 
+}
+
+.buttonRight {
+  padding: 0.5rem; 
+  background-color: #000000; 
+  opacity: 0.7; 
+  margin-left: 0.5rem;
+}
+
+.AtribBtnSelect {
+  color: #ffffff; 
+  background: #1D1F22;
+  width: 63px;
+  height: 45px;
+  border: 1px solid #1D1F22;
+}
+
+.AtribBtnSelectColor {
+  outline: 1px solid #5ECE7B;
+  outline-offset: 1px;
+  margin-right: 0.75rem; 
+  width: 2rem; 
+  height: 2rem;   
+}
+
+.AtribBtnColor {
+  margin-right: 0.75rem; 
+  width: 2rem; 
+  height: 2rem;   
+}
+
+.AtribBtn {
+  width: 63px;
+  height: 45px;  
+  min-width: max-content; 
+  border: 1px solid #1D1F22;
+}
+.AtribBtn:hover {
+  color: #ffffff; 
+ background: #1D1F22;
+}
+
+.atribButton {
+  width: 100%; 
+  height: 100%; 
+}

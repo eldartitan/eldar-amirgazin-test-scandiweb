@@ -1,0 +1,223 @@
+.quantity {
+  display: flex; 
+  position: absolute; 
+  margin-bottom: 1rem; 
+  color: #ffffff; 
+  font-size: 0.875rem;
+  line-height: 1.25rem; 
+  font-weight: 700; 
+  justify-content: center; 
+  width: 1.25rem; 
+  height: 1.25rem; 
+  border-radius: 9999px; 
+  margin-left: 13px;
+  background: #1D1F22;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* menu */
+
+.menuButton {
+  display: flex; 
+  padding-left: 0.25rem; 
+  margin-left: 1rem; 
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #1D1F22;
+}
+
+.menu {
+  top: 0;
+  z-index: 20;
+  position: absolute; 
+  padding-left: 1rem;
+  padding-right: 1rem; 
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem; 
+  background-color: #ffffff; 
+  margin-top: 55px;
+  margin-left: 50px;
+  width: 313px;
+  color: #1D1F22;
+}
+
+.bagBlock {
+  font-size: 1rem;
+  line-height: 1.5rem; 
+}
+
+.myBag {
+  font-weight: 700; 
+}
+
+.cards {
+  overflow-y: scroll;
+  max-height: 432px;
+  margin-top: 32px; 
+}
+
+.totalPrice {
+  display: flex; 
+  margin-top: 2rem; 
+  font-size: 1rem;
+  line-height: 1.5rem; 
+  font-weight: 500; 
+  justify-content: space-between; 
+}
+
+.linksBlock {
+  display: flex; 
+  margin-top: 2rem; 
+  justify-content: space-between; 
+}
+
+.viewBag {
+  display: flex; 
+  font-size: 0.875rem;
+  line-height: 1.25rem; 
+  justify-content: center; 
+  align-items: center; 
+  border-width: 1px;
+  width: 140px;
+  height: 43px;
+  border: 1px solid #1D1F22
+}
+
+.viewBag:hover {
+  color: #ffffff; 
+  background-color: #1D1F22;
+  }
+
+.checkOut {
+  color: #ffffff; 
+  font-size: 0.875rem;
+  line-height: 1.25rem; 
+  background: #5ECE7B;
+  width: 140px;
+  height: 43px;
+}
+
+/* card */
+
+.card {
+  display: flex; 
+  margin-top: 2.5rem; 
+}
+
+
+.cardInfoBlock {
+  width: 100%; 
+}
+
+.brandAndName {
+  display: flex; 
+  font-size: 1rem;
+  line-height: 1.5rem; 
+  font-weight: 300; 
+  flex-direction: column; 
+}
+
+.nameSpan {
+  font-weight: 400; 
+}
+
+.price {
+  display: flex; 
+  font-weight: 500; 
+  flex-direction: column; 
+}
+
+.amountBlock {
+  display: flex; 
+  margin-left: 0.25rem;
+  margin-right: 0.25rem; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.amountButton {
+  width: 1.5rem; 
+  height: 1.5rem; 
+  border: 1px solid #1D1F22;
+}
+
+.amountButton:hover {
+  color: #ffffff; 
+  background-color: #1D1F22;
+}
+
+.amountData {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.imgsBlock {
+  display: flex; 
+  align-items: center;
+}
+
+.cardAtribs {
+  display: flex; 
+  margin-top: 1rem; 
+  font-size: 1rem;
+  line-height: 1.5rem; 
+  font-weight: 300; 
+  flex-direction: column;
+  padding-left: 2px;
+}
+
+.cardAtribsMap {
+  display: flex; 
+  margin-top: 0.25rem;
+  gap: 0.25rem;
+}
+
+
+.cardAtribBtnSelect {
+  color: #ffffff;
+  min-width: 20px; 
+  height: 24px;
+  background: #1D1F22;
+  border: 1px solid #1D1F22;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.cardAtribBtnSelectColor {
+  outline-style: solid;
+  outline-offset: 1px;
+  outline-width: 1px;
+  outline-color: #5ECE7B;
+  width: 16px; 
+  height: 16px; 
+}
+
+.cardAtribBtnColor {
+  width: 16px; 
+  height: 16px; 
+}
+
+.cardAtribBtn { 
+  min-width: 20px; 
+  height: 24px;
+  border: 1px solid #1D1F22;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.cardAtribBtn:hover {
+  color: #ffffff; 
+  background-color: #1D1F22;
+}
+
+.cardBtn {
+  width: 100%; 
+  height: 100%; 
+}

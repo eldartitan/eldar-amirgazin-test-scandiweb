@@ -1,0 +1,148 @@
+.product {
+  display: flex; 
+  margin-top: 5rem; 
+}
+
+.imgList {
+  display: flex; 
+  flex-direction: column; 
+}
+
+.imgListMap {
+  padding: 0.5rem; 
+}
+
+.productImg {
+  margin-left: 1.5rem; 
+  width: 610px;
+  height: 511px;
+  margin-right: 100px;
+}
+
+.infoBlock {
+  width: 292px;
+}
+
+.brandNameBlock {
+  display: flex; 
+  margin-bottom: 3rem; 
+  flex-direction: column; 
+}
+
+.brand {
+  padding-bottom: 1rem; 
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  font-weight: 600; 
+}
+
+.name {
+  font-size: 1.875rem;
+  line-height: 2.25rem; 
+  font-weight: 400; 
+}
+
+.atribs {
+  margin-top: 1.5rem; 
+  font-size: 0.875rem;
+  line-height: 1.25rem; 
+  font-weight: 400; 
+}
+
+.atribsName {
+  font-size: 1.125rem;
+  line-height: 1.75rem; 
+  font-weight: 700; 
+}
+
+.atrib {
+  display: flex; 
+  margin-top: 0.5rem; 
+}
+
+.atribColor {
+  margin-top: 0.5rem; 
+  display: flex;
+  gap: 0.75rem;
+}
+
+.atribButton {
+  width: 100%; 
+  height: 100%; 
+}
+
+.priceBlock {
+  display: flex; 
+  margin-top: 2.25rem; 
+  flex-direction: column; 
+}
+
+.price {
+  font-size: 1.125rem;
+  line-height: 1.75rem; 
+  font-weight: 700; 
+}
+
+.amount {
+  font-size: 1.5rem;
+  line-height: 2rem; 
+  font-weight: 700; 
+  padding-top: 10px;
+}
+
+.addToCart {
+  margin-top: 1.25rem; 
+  color: #ffffff; 
+  font-size: 1rem;
+  line-height: 1.5rem; 
+  font-weight: 600; 
+  background: #5ECE7B;
+  width: 292px;
+  height: 52px;
+}
+
+.addedAlert {
+  display: flex; 
+  margin-top: 0.25rem; 
+  color: #EF4444; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+}
+
+.description {
+  margin-top: 2rem; 
+}
+
+.AtribBtnSelect {
+  color: #ffffff; 
+  background: #1D1F22;
+  width: 63px;
+  height: 45px;
+  border: 1px solid #1D1F22;
+}
+
+.AtribBtnSelectColor {
+  outline: 1px solid #5ECE7B;
+  outline-offset: 1px;
+  margin-right: 0.75rem; 
+  width: 2rem; 
+  height: 2rem;   
+}
+
+.AtribBtnColor {
+  margin-right: 0.75rem; 
+  width: 2rem; 
+  height: 2rem;   
+}
+
+.AtribBtn {
+  width: 63px;
+  height: 45px;  
+  min-width: max-content; 
+  border: 1px solid #1D1F22;
+}
+.AtribBtn:hover {
+  color: #ffffff; 
+ background: #1D1F22;
+}
