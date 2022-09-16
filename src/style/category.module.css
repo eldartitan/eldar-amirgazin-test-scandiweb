@@ -16,37 +16,62 @@
   gap: 3rem; 
 }
 
+.cardContainer {
+  width: 386px;
+}
+
+.cardContainer:hover {
+  -webkit-box-shadow: 5px 7px 10px -6px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 5px 7px 10px -6px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 7px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
 .card {
   display: flex; 
   flex-direction: column;
-  width: 386px;
-  margin: -1rem;
+  margin: 16px;
 }
-.card:hover {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+.cardImageContainer{
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 3px;
+  /* border: 1px dashed #000; */
+  height: 354px;
+  weight: 330px;
+}
+
+.cardOutOf {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  font-weight: 400;
+  font-size: 24px;
+  color: #8D8F9A;
 }
 
 .cardImage {
-  background: top no-repeat;
-  background-size: cover;
-  height: 330px;
-  width: 354px;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
 }
 
 .cartLogoDiv {
-  display: flex; 
-  align-items: flex-end; 
-  height: 100%; 
+  position: absolute;
+  right: 31px;
+  top: 320px;
+  z-index:10;
 }
 
 .cartLogo {
   display: flex;
-  margin-left: auto; 
-  margin-right: 1rem; 
-  margin-bottom: -1.75rem; 
   justify-content: center; 
   align-items: center; 
-  border-radius: 9999px; 
+  border-radius: 50%; 
   border-width: 1px; 
   width: 52px;
   height: 52px;

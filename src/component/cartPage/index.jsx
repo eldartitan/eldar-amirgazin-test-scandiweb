@@ -1,21 +1,25 @@
-/** @format */
-
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartList from "./CartList";
 import s from "../../style/cart.module.css";
 import { getCart, getCurrency } from "../../store/selector";
+import { useEffect } from "react";
+import { getTotalPrice } from "../../store/cartSlice";
 
 export default function Cart() {
+  const dispatch = useDispatch();
   const data = useSelector(getCart);
   const price = useSelector(getCurrency);
-  const dataKeys = Object.values(data.products);
-  const extPrice = `${data.total[price.label].toFixed(2)} ${price.symbol}`;
+  const extPrice = `${data.totalPrice.toFixed(2)} ${price?.symbol}`;
+
+  useEffect(() => {
+    dispatch(getTotalPrice(price?.label))
+  }, [data.quantity])
 
   return (
     <div className={s.cart}>
       <div className={s.cartText}>CART</div>
-      {dataKeys.map((d) => (
+      {data.products.map((d) => (
         <CartList key={d.id} cart={d} extPrice={extPrice} />
       ))}
       <div className={s.lineDiv}>

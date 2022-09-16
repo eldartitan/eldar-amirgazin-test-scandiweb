@@ -1,39 +1,28 @@
-/** @format */
-
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { PRODUCT } from "../../query/queryies";
 import { setProduct } from "../../store/cartSlice";
-import s from "../../style/product.module.css";
+import { getCurrency } from "../../store/selector";
 import ProductAtribs from "./ProductAtribs";
-import { getCurrencyLabel, getProducts } from "../../store/selector";
+import parse from 'html-react-parser';
+import s from "../../style/product.module.css";
 
 export default function Product() {
   let { id } = useParams();
   const { loading, data } = useQuery(PRODUCT, {
     variables: { id },
   });
+  console.log(data)
 
-  // if (loading) {
-  //   return (<h1>Loading...</h1>)
-  // };
-  
   const dispatch = useDispatch();
-  const state = useSelector(getProducts);
-  const price = useSelector(getCurrencyLabel);
-  const pr = data?.product.prices.filter((p) => p.currency.label === price)[0];
+  const price = useSelector(getCurrency);
+  const pr = data?.product.prices.filter((p) => p.currency.label === price?.label)[0];
 
   const [added, setAdded] = useState(false);
   const [selectImg, setSelectImg] = useState(0);
-  const [select, setSelect] = useState({
-    Capacity: null,
-    "With USB 3 ports": null,
-    "Touch ID in keyboard": null,
-    Size: null,
-    Color: null,
-  });
+  const [select, setSelect] = useState([]);
 
   const selectClick = (atribute, value) => {
     if (select[atribute] === null) {
@@ -47,21 +36,16 @@ export default function Product() {
 
   const addToCartClick = (prop) => {
     const propL = prop.filter((e) => select[e.id] !== null).length;
-    if (propL === prop.length) {
-      if (data.product.id in state) {
-        setAdded("Product has already been added!");
-      } else {
-        const prop = {
-          id: data.product.id,
-          data: data.product,
-          atribs: select,
-          amount: 1,
-        };
-        if (data.product.id in state === false) {
-          dispatch(setProduct(prop));
-        }
-        setAdded("Product added!");
-      }
+    if (!data.product.inStock) {
+      setAdded("Product out of stock!");
+    } else if (propL === prop.length) {
+      const prop = {
+        id: `${data.product.id}_${ new Date().getTime() }`,
+        data: data.product,
+        atribs: select,
+        amount: 1,
+      };
+      dispatch(setProduct(prop));
     } else {
       setAdded("Select all atributes please!");
     }
@@ -107,8 +91,8 @@ export default function Product() {
             <div className={s.priceBlock}>
               <span className={s.price}>PRICE:</span>
               <span className={s.amount}>
-                {pr.amount}
-                {pr.currency.symbol}
+                {pr?.amount}
+                {pr?.currency.symbol}
               </span>
             </div>
             <button
@@ -122,10 +106,7 @@ export default function Product() {
                 <span className="">{added}</span>
               </div>
             ) : null}
-            <div
-              className={s.description}
-              dangerouslySetInnerHTML={{ __html: data.product.description }}
-            />
+            {parse(data.product.description)}
           </div>
         </div>
       ) : (

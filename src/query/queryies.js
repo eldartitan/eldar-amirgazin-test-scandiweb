@@ -1,5 +1,3 @@
-/** @format */
-
 import { gql } from "@apollo/client";
 
 export const CATEGORY = gql`
@@ -9,6 +7,7 @@ export const CATEGORY = gql`
         id
         name
         gallery
+        brand
         prices {
           currency{
             symbol
@@ -64,13 +63,13 @@ export const PRODUCT = gql`
 }
 `;
 
-// export const CATEGORIES = gql`
-//   query {
-//     categories {
-//       name
-//     }
-// }
-// `;
+export const CATEGORIES = gql`
+  query {
+    categories {
+      name
+    }
+}
+`;
 
 export const CURRENCIES = gql`
   query {

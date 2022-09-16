@@ -1,10 +1,8 @@
-/** @format */
-
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import s from "../../style/category.module.css";
 import { CATEGORY } from "../../query/queryies";
+import s from "../../style/category.module.css";
 import Card from "./Card";
 
 export default function Category() {

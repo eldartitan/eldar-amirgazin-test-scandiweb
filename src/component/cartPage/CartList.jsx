@@ -1,31 +1,30 @@
-/** @format */
-
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   dAmount,
-  deleteProduct,
+  getTotalPrice,
   iAmount,
   selectAtribes,
 } from "../../store/cartSlice";
 import ArrowLeft from "../../style/icons/ArrowLeft";
 import ArrowRight from "../../style/icons/ArrowRight";
 import ProductAtribs from "../productPage/ProductAtribs";
-import s from "../../style/cart.module.css";
 import { Link } from "react-router-dom";
-import Cross from "../../style/icons/Cross";
-import { getCurrencyLabel } from "../../store/selector";
+import { getCurrency } from "../../store/selector";
+import s from "../../style/cart.module.css";
 
 export default function CartList({ cart }) {
   const dispatch = useDispatch();
-  const price = useSelector(getCurrencyLabel);
-  const pr = cart.data.prices.filter((p) => p.currency.label === price)[0];
+  const price = useSelector(getCurrency);
+  const pr = cart.data.prices.filter(
+    (p) => p.currency.label === price?.label,
+  )[0];
 
   const [selectImg, setSelectImg] = useState(0);
   const [select, setSelect] = useState(cart.atribs);
 
   useEffect(() => {
-    dispatch(selectAtribes({ id: cart.id, select }));
+    dispatch(selectAtribes({ id: cart.id, atribs: select }));
   }, [select, dispatch, cart.id]);
 
   const selectClick = (atribute, value) => {
@@ -34,6 +33,16 @@ export default function CartList({ cart }) {
     } else if (select[atribute] === value) {
       setSelect({ ...select, [atribute]: null });
     }
+  };
+
+  const handleClickI = () => {
+    dispatch(iAmount(cart.id));
+    dispatch(getTotalPrice(price.label));
+  };
+
+  const handleClickD = () => {
+    dispatch(dAmount(cart.id));
+    dispatch(getTotalPrice(price.label));
   };
 
   return (
@@ -51,8 +60,8 @@ export default function CartList({ cart }) {
           </div>
           <div className={s.flexCol}>
             <span className={s.price}>
-              {pr.amount}
-              {pr.currency.symbol}
+              {pr?.amount}
+              {pr?.currency.symbol}
             </span>
           </div>
           {cart.data.attributes.map((atribs) => {
@@ -67,17 +76,11 @@ export default function CartList({ cart }) {
           })}
         </div>
         <div className={s.amountBlock}>
-          <button
-            onClick={() => dispatch(iAmount({ id: cart.id }))}
-            className={s.buttonAmount}
-          >
+          <button onClick={handleClickI} className={s.buttonAmount}>
             +
           </button>
           <span className={s.amount}>{cart.amount}</span>
-          <button
-            onClick={() => dispatch(dAmount({ id: cart.id }))}
-            className={s.buttonAmount}
-          >
+          <button onClick={handleClickD} className={s.buttonAmount}>
             -
           </button>
         </div>
@@ -115,11 +118,6 @@ export default function CartList({ cart }) {
               </div>
             ) : null}
           </div>
-        </div>
-        <div>
-          <button onClick={() => dispatch(deleteProduct(cart.id))}>
-            <Cross />
-          </button>
         </div>
       </div>
     </div>

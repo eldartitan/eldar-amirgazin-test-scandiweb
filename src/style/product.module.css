@@ -122,6 +122,13 @@
   border: 1px solid #1D1F22;
 }
 
+.AtribBtnColorWhite {
+  margin-right: 0.75rem; 
+  width: 2rem; 
+  height: 2rem;
+  outline: 1px solid rgba(0, 0, 0, 0.5);
+}
+
 .AtribBtnSelectColor {
   outline: 1px solid #5ECE7B;
   outline-offset: 1px;
@@ -144,5 +151,5 @@
 }
 .AtribBtn:hover {
   color: #ffffff; 
- background: #1D1F22;
+  background: #1D1F22;
 }

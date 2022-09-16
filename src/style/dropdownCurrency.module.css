@@ -1,14 +1,15 @@
-li {
-  list-style-type: none
-}
-ul {
-  margin-left: 0;
-  padding-left: 0;
-}
-
 .dropdown {
   display: flex;
   /* justify-content: flex-end; */
+}
+
+.dropdown li {
+  list-style-type: none;
+}
+
+.dropdown ul {
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .buttonIsOpen {
@@ -25,7 +26,6 @@ ul {
 }
 
 .modal {
-  z-index: 20;
   top: 0px;
   position: absolute;
   margin-top: 65px; 

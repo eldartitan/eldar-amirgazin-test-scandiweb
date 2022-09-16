@@ -1,15 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  products: {},
-  total: {
-    "USD": 0,
-    "GBP": 0,
-    "AUD": 0,
-    "JPY": 0,
-    "RUB": 0
-  },
-  quantity: 0
+  products: [],
+  totalPrice: 0,
+  quantity: 0,
+  currency: {}
 };
 
 export const cartSlice = createSlice({
@@ -17,42 +12,50 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     setProduct: (state, action) => {
-      state.products[action.payload.id] = action.payload;
-      for (let key in state.total) {
-        state.total[key] += state.products[action.payload.id].data.prices.filter(f => f.currency.label === key)[0].amount
-      }
-      state.quantity += 1
+      state.products.push(action.payload);
+      state.quantity += 1;
     },
     selectAtribes: (state, action) => {
-      state.products[action.payload.id].atribs = action.payload.select;
+      let i = state.products.indexOf(
+        state.products.filter((f) => f.id === action.payload.id)[0],
+      );
+      state.products[i].atribs = action.payload.atribs;
     },
     iAmount: (state, action) => {
-      state.products[action.payload.id].amount += 1;
-      for (let key in state.total) {
-        state.total[key] += state.products[action.payload.id].data.prices.filter(f => f.currency.label === key)[0].amount
-      }
-      state.quantity += 1
+      let i = state.products.indexOf(
+        state.products.filter((f) => f.id === action.payload)[0],
+      );
+      state.products[i].amount += 1;
+      state.quantity += 1;
     },
     dAmount: (state, action) => {
-      if (state.products[action.payload.id].amount > 1) {
-        state.products[action.payload.id].amount -= 1
-        for (let key in state.total) {
-          state.total[key] -= state.products[action.payload.id].data.prices.filter(f => f.currency.label === key)[0].amount
-        }
-        state.quantity -= 1
-      };
+      let i = state.products.indexOf(
+        state.products.filter((f) => f.id === action.payload)[0],
+      );
+      state.products[i].amount > 1
+        ? (state.products[i].amount -= 1)
+        : (state.products = state.products.filter(
+            (f) => f.id !== action.payload,
+          ));
+      state.quantity -= 1;
     },
-    deleteProduct: (state, action) => {
-      for (let key in state.total) {
-        state.total[key] -= state.products[action.payload].data.prices.filter(f => f.currency.label === key)[0].amount * state.products[action.payload].amount
+    getTotalPrice: (state, action) => {
+      let total = 0;
+      for (let i = 0; i < state.products.length; i++) {
+        let price = state.products[i].data.prices.filter(
+          (f) => f.currency.label === action.payload,
+        )[0];
+        console.log(price)
+        total += price.amount * state.products[i].amount;
       }
-      state.quantity -= state.products[action.payload].amount
-      delete state.products[action.payload]
+      state.totalPrice = total;
+    },
+    setCurrency: (state, action) => {
+      state.currency = action.payload;
     },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { setProduct, selectAtribes, iAmount, dAmount, deleteProduct } = cartSlice.actions;
-
+export const { setProduct, selectAtribes, iAmount, dAmount, getTotalPrice, setCurrency } =
+  cartSlice.actions;
 export default cartSlice.reducer;

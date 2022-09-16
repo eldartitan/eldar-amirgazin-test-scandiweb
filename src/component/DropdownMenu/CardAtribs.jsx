@@ -1,9 +1,7 @@
-/** @format */
-
 import React from "react";
 import s from "../../style/dropdownMenu.module.css";
 
-export default function CardAtribs({ atribs, selectClick, select }) {
+export default function CardAtribs({ atribs, select }) {
   return (
     <div className={s.cardAtribs}>
       <span>{atribs.name}:</span>
@@ -25,7 +23,6 @@ export default function CardAtribs({ atribs, selectClick, select }) {
             >
               <button
                 className={s.cardBtn}
-                onClick={() => selectClick(atribs.id, item.value)}
                 key={item.id}
               >
                 {atribs.id !== "Color" ? item.value : null}

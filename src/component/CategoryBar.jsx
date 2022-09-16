@@ -1,40 +1,27 @@
-/** @format */
-
-import React, { PureComponent } from "react";
+import React from "react";
+import { useQuery } from "@apollo/client";
 import { NavLink } from "react-router-dom";
+import { CATEGORIES } from "../query/queryies";
 import s from "../style/style.module.css";
 
-export default class CategoryBar extends PureComponent {
-  render() {
-    return (
-      <>
-        <div className={s.categoryBar}>
+export default function CategoryBar() {
+  const { loading, data } = useQuery(CATEGORIES);
+
+  return (
+    <>
+      <div className={s.categoryBar}>
+        {data?.categories.map((cat) => (
           <NavLink
-            to={""}
+            key={cat.name}
+            to={cat.name==="all" ? "" : cat.name}
             className={({ isActive }) =>
               isActive ? s.isActive : s.isNotActive
             }
           >
-            ALL
+            {cat.name.toUpperCase()}
           </NavLink>
-          <NavLink
-            to={"clothes"}
-            className={({ isActive }) =>
-              isActive ? s.isActive : s.isNotActive
-            }
-          >
-            CLOTHES
-          </NavLink>
-          <NavLink
-            to={"tech"}
-            className={({ isActive }) =>
-              isActive ? s.isActive : s.isNotActive
-            }
-          >
-            TECH
-          </NavLink>
-        </div>
-      </>
-    );
-  }
+        ))}
+      </div>
+    </>
+  );
 }

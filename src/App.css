@@ -4,6 +4,11 @@
   margin-right: auto;
 }
 
+.containerFlex {
+  display: flex;
+  justify-content: end;
+}
+
 @media (min-width: 640px) {
   .App {
     max-width: 640px;
