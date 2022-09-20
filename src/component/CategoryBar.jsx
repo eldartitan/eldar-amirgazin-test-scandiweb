@@ -5,7 +5,7 @@ import { CATEGORIES } from "../query/queryies";
 import s from "../style/style.module.css";
 
 export default function CategoryBar() {
-  const { loading, data } = useQuery(CATEGORIES);
+  const { data } = useQuery(CATEGORIES);
 
   return (
     <>

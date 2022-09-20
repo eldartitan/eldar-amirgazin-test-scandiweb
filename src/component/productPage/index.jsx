@@ -14,7 +14,6 @@ export default function Product() {
   const { loading, data } = useQuery(PRODUCT, {
     variables: { id },
   });
-  console.log(data)
 
   const dispatch = useDispatch();
   const price = useSelector(getCurrency);
@@ -55,7 +54,7 @@ export default function Product() {
     <>
       {!loading && data ? (
         <div className={s.product}>
-          <div className={s.imgList}>
+          <div className={s.imgList} style={!data?.product.inStock ? {opacity: "0.7"} : {}}>
             {data.product.gallery.map((link, index) => {
               return (
                 <button
@@ -69,9 +68,12 @@ export default function Product() {
             })}
           </div>
           <div>
-            <span className={s.productImg}>
+            <div className={s.productImg} style={!data?.product.inStock ? {opacity: "0.7"} : {}}>
+              {!data?.product.inStock ? (
+                <div className={s.cardOutOf}>OUT OF STOCK</div>
+              ) : null}
               <img src={data.product.gallery[selectImg]} alt="" width={610} />
-            </span>
+            </div>
           </div>
           <div className={s.infoBlock}>
             <div className={s.brandNameBlock}>
@@ -91,7 +93,7 @@ export default function Product() {
             <div className={s.priceBlock}>
               <span className={s.price}>PRICE:</span>
               <span className={s.amount}>
-                {pr?.amount}
+                {pr?.amount.toFixed(2)}
                 {pr?.currency.symbol}
               </span>
             </div>

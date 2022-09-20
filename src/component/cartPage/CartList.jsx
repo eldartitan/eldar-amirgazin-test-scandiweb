@@ -60,7 +60,7 @@ export default function CartList({ cart }) {
           </div>
           <div className={s.flexCol}>
             <span className={s.price}>
-              {pr?.amount}
+              {pr?.amount.toFixed(2)}
               {pr?.currency.symbol}
             </span>
           </div>

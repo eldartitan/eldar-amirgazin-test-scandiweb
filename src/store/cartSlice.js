@@ -4,7 +4,7 @@ const initialState = {
   products: [],
   totalPrice: 0,
   quantity: 0,
-  currency: {}
+  currency: {},
 };
 
 export const cartSlice = createSlice({
@@ -12,7 +12,18 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     setProduct: (state, action) => {
-      state.products.push(action.payload);
+      let i = state.products.indexOf(
+        state.products.filter(
+          (f) =>
+            f.data.id === action.payload.data.id &&
+            JSON.stringify(f.atribs) === JSON.stringify(action.payload.atribs),
+        )[0],
+      );
+      if (i !== -1) {
+        state.products[i].amount += 1
+      } else {
+        state.products.push(action.payload);
+      }
       state.quantity += 1;
     },
     selectAtribes: (state, action) => {
@@ -45,7 +56,6 @@ export const cartSlice = createSlice({
         let price = state.products[i].data.prices.filter(
           (f) => f.currency.label === action.payload,
         )[0];
-        console.log(price)
         total += price.amount * state.products[i].amount;
       }
       state.totalPrice = total;
@@ -56,6 +66,12 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { setProduct, selectAtribes, iAmount, dAmount, getTotalPrice, setCurrency } =
-  cartSlice.actions;
+export const {
+  setProduct,
+  selectAtribes,
+  iAmount,
+  dAmount,
+  getTotalPrice,
+  setCurrency,
+} = cartSlice.actions;
 export default cartSlice.reducer;

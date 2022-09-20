@@ -13,7 +13,7 @@ export default function Modal({ isOpen, setIsOpen, data, wrapperRef }) {
 
   useEffect(() => {
     dispatch(getTotalPrice(price?.label))
-  }, [data.quantity])
+  }, [data.quantity, dispatch, price?.label])
 
   return ReactDOM.createPortal(
     <>

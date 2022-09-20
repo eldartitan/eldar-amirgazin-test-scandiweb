@@ -11,7 +11,7 @@ import { setCurrency } from "../store/cartSlice";
 
 export default function DropdownCurrency() {
   const dispatch = useDispatch();
-  const { loading, data } = useQuery(CURRENCIES);
+  const { data } = useQuery(CURRENCIES);
   const price = useSelector(getCurrency);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function DropdownCurrency() {
 
   useEffect(() => {
     dispatch(setCurrency(data?.currencies[0]));
-  }, [data])
+  }, [data, dispatch])
   
   return (
     <>

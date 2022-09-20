@@ -23,7 +23,7 @@ export default function MenuCard({ data }) {
           </Link>
         </div>
         <div className={s.price}>
-          {pr?.amount}
+          {pr?.amount.toFixed(2)}
           {pr?.currency.symbol}
         </div>
         {data.data.attributes.map((atribs) => (

@@ -14,13 +14,13 @@ export default function Cart() {
 
   useEffect(() => {
     dispatch(getTotalPrice(price?.label))
-  }, [data.quantity])
+  }, [data.quantity, dispatch, price?.label])
 
   return (
     <div className={s.cart}>
       <div className={s.cartText}>CART</div>
       {data.products.map((d) => (
-        <CartList key={d.id} cart={d} extPrice={extPrice} />
+        <CartList key={d.id} cart={d} />
       ))}
       <div className={s.lineDiv}>
         <span className={s.line}></span>

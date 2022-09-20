@@ -52,7 +52,7 @@ export default function Card(props) {
               {props.data.brand + " " + props.data.name}
             </div>
             <span className={s.cardAmount}>
-              {pr?.amount} {pr?.currency.symbol}
+              {pr?.amount.toFixed(2)} {pr?.currency.symbol}
             </span>
           </div>
         </div>

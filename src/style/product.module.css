@@ -13,10 +13,25 @@
 }
 
 .productImg {
+  position: relative;
+  align-items: center;
   margin-left: 1.5rem; 
+  margin-right: 100px;
   width: 610px;
   height: 511px;
-  margin-right: 100px;
+}
+
+.cardOutOf {
+  top: 50%;
+  bottom: 50%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  font-weight: 500;
+  font-size: 30px;
+  color: #8D8F9A;
 }
 
 .infoBlock {
